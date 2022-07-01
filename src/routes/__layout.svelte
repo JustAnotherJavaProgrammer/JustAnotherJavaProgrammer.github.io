@@ -1,7 +1,6 @@
 <script lang="ts">
-    import "../app.css";
-    import Header from "../lib/Header.svelte";
+    import Navbar from "../lib/Navbar.svelte";
 </script>
 
-<Header />
+<Navbar links={[{displayName: "English", href: "/en"}, {displayName: "Deutsch", href: "/de"}]}/>
 <slot />
