@@ -20,7 +20,7 @@
 				{#each links as link}
 					<li>
 						<a href={link.href} class:current={pageData.url.toString().includes(link.href)}
-							>{(() => {console.log({url: pageData.url.toString(), href:link.href, includes: pageData.url.toString().includes(link.href)});return link.displayName})()}</a
+							>{link.displayName}</a
 						>
 					</li>
 				{/each}
