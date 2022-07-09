@@ -1,13 +1,28 @@
 <script lang="ts">
+	import {onMount} from "svelte";
+	import { browser } from '$app/env';
 	export let taglines: string[] = ['Hello world!'];
 	export let visibilityTime: number = 5;
 	const cycleDuration = visibilityTime + 1;
 	const completeDuration = cycleDuration * taglines.length;
+	const lines: HTMLParagraphElement[] = [];
+
+	onMount(() => {
+		lines[taglines.length-1].addEventListener("animationend", (ev) => {
+			if(ev.animationName.endsWith("fadeOutUp")) {
+				for(const line of lines) {
+					line.classList.remove("anim");
+					void line.offsetWidth;
+					line.classList.add("anim");
+				}
+			}
+		});
+	});
 </script>
 
 <div style="--visibility-time: {visibilityTime}s; --complete-duration: {completeDuration}s;">
 	{#each taglines as tagline, i}
-		<p style="--anim-delay: {i * cycleDuration}s;">{tagline}</p>
+		<p style="--anim-delay: {i * cycleDuration}s;" class="anim" class:noscript={!browser} bind:this={lines[i]}>{tagline}</p>
 	{/each}
 </div>
 
@@ -43,21 +58,26 @@
 		visibility: hidden;
 		position: fixed;
 		max-width: 100%;
-		animation-delay: 0s, var(--anim-delay), calc(var(--anim-delay) + 0.5s),
-			calc(var(--visibility-time) + var(--anim-delay) + 0.5s),
-			calc(var(--visibility-time) + var(--anim-delay) + 1s);
-		animation-name: hide, fadeInUp, show, fadeOutUp, hide;
-		animation-duration: var(--anim-delay), 0.5s, var(--visibility-time), 0.5s,
-			var(--complete-duration);
+		
 	}
 
-	p:last-of-type {
+	p.anim {
+		animation-delay: 0s, var(--anim-delay), calc(var(--anim-delay) + 0.5s),
+			calc(var(--visibility-time) + var(--anim-delay) + 0.5s);
+		animation-name: hide, fadeInUp, show, fadeOutUp;
+		animation-duration: var(--anim-delay), 0.5s, var(--visibility-time), 0.5s;
+	}
+
+	p.noscript:last-of-type {
 		visibility: visible;
 		opacity: 1;
 		animation-delay: 0s, var(--anim-delay);
 		animation-name: hide, fadeInUp;
 		animation-duration: var(--anim-delay), 0.5s;
 		font-weight: 500;
+	}
+
+	p:last-of-type {
 		color: var(--dark-orange);
 	}
 
