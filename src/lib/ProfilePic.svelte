@@ -23,13 +23,14 @@
         aspect-ratio: 1/1;
         border-radius: 50%;
         filter: grayscale(100%);
-        transition: filter 0.5s;
+        transition: filter 0.5s,border-radius 0.5s;
         cursor: pointer;
         padding: 1vmin;
     }
 
     img:hover {
         filter: none;
+        border-radius: 25%;
     }
     
     h1 {

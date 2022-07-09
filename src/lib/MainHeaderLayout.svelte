@@ -15,6 +15,7 @@
 
     section {
         flex-grow: 1;
+        flex-basis: 0;
     }
 
     @media(orientation: landscape) {

@@ -78,6 +78,17 @@
   /* Legacy iOS */
 }
 
+:root {
+  --blue: #79ADDC;
+  --dark-green: #515B3A;
+  --red: #F25757;
+  --yellow: #F5BD1F;
+  --indigo: #4B0082;
+  --green: #23CE6B;
+  --orange: #FFAE42;
+  --dark-orange: #CC7400;
+  --dark-yellow: #D6A00A;
+}
 
 body {
   padding: 0;
