@@ -55,10 +55,10 @@
 		padding: 0;
 		margin: 0;
 		opacity: 0;
-		visibility: hidden;
-		position: fixed;
-		max-width: 100%;
-		
+		visibility: collapse;
+		text-align: center;
+		/* position: fixed; */
+		/* max-width: 100%; */
 	}
 
 	p.anim {
@@ -120,11 +120,11 @@
 
 	@keyframes hide {
 		from {
-			visibility: hidden;
+			visibility: collapse;
 			opacity: 0;
 		}
 		to {
-			visibility: hidden;
+			visibility: collapse;
 			opacity: 0;
 		}
 	}

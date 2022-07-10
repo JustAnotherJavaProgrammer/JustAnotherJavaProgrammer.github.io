@@ -33,8 +33,10 @@
 	header {
 		display: block;
 		position: sticky;
+		top: 0;
 		border-bottom: 0.2em black solid;
 		font: 600 1em Montserrat, sans-serif;
+		background-color: white;
 	}
 
 	h1 {
@@ -68,7 +70,7 @@
 		padding-top: 0.2em;
 		padding-bottom: 0.35em;
 		background: linear-gradient(black, black) 50% calc(100% - 0.15em) / 0% 0% no-repeat;
-		transition: background-size 0.3s;
+		transition: background-size 0.3s, color 0.1s, background-image 0.1s;
 	}
 
 	a:hover,
@@ -76,5 +78,25 @@
 		/* border-bottom: 0.15em solid black; */
 		/* padding-bottom: 0.35em; */
 		background-size: 100% 0.15em;
+	}
+
+	li:nth-child(4n + 1) > a:hover {
+		background-image: linear-gradient(var(--indigo), var(--indigo));
+		color: var(--indigo);
+	}
+
+	li:nth-child(4n + 2) > a:hover {
+		background-image: linear-gradient(var(--dark-yellow), var(--dark-yellow));
+		color: var(--dark-yellow);
+	}
+
+	li:nth-child(4n + 3) > a:hover {
+		background-image: linear-gradient(var(--red), var(--red));
+		color: var(--red);
+	}
+
+	li:nth-child(4n) > a:hover {
+		background-image: linear-gradient(var(--dark-green), var(--dark-green));
+		color: var(--dark-green);
 	}
 </style>

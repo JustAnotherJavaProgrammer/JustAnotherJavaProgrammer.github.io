@@ -11,6 +11,7 @@
         flex-direction: column-reverse;
         justify-content: stretch;
         align-items: stretch;
+        flex-wrap: wrap-reverse;
     }
 
     section {
