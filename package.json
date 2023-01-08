@@ -6,7 +6,6 @@
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
-		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. .",
@@ -22,7 +21,8 @@
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.6",
 		"tslib": "^2.3.1",
-		"typescript": "^4.7.2"
+		"typescript": "^4.7.2",
+		"vite": "^3.2.5"
 	},
 	"type": "module",
 	"dependencies": {
